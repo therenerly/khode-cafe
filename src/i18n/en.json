@@ -1,0 +1,190 @@
+{
+  "brand": {
+    "name": "KHode",
+    "suffix": "Café",
+    "tagline": "Brew. Build. Belong."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "menu": "Menu",
+    "features": "Why KHode",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "signIn": "Sign in",
+    "order": "Order now"
+  },
+  "theme": {
+    "light": "Light mode",
+    "dark": "Dark mode"
+  },
+  "lang": {
+    "switch": "Switch language",
+    "en": "English",
+    "km": "Khmer"
+  },
+  "hero": {
+    "badge": "Specialty coffee · Siem Reap",
+    "title": "Where great coffee meets clean code.",
+    "subtitle": "A calm, creative coffee house for makers, students, and dreamers. Single-origin brews, blazing Wi‑Fi, and a space designed to help you focus.",
+    "ctaPrimary": "Order with KHQR",
+    "ctaSecondary": "Explore the menu",
+    "stat1": "Specialty drinks",
+    "stat2": "Avg. brew time",
+    "stat3": "Open daily",
+    "scroll": "Scroll to explore",
+    "ticker": [
+      "Single-origin espresso",
+      "Free 500 Mbps Wi‑Fi",
+      "Quiet focus corners",
+      "Cambodian-grown beans",
+      "ABA KHQR accepted"
+    ]
+  },
+  "about": {
+    "chip": "Our story",
+    "title": "A coffee house built for the curious.",
+    "body": "KHode began as a late-night idea between a barista and a developer: a place where the warmth of Cambodian hospitality meets the focus of a great workspace. Every cup is brewed with intention, every corner designed for flow.",
+    "point1Title": "Crafted, not rushed",
+    "point1Body": "Beans roasted in small batches and pulled to order by trained baristas.",
+    "point2Title": "Built for focus",
+    "point2Body": "Fast Wi‑Fi, plentiful power, and quiet zones for deep work.",
+    "point3Title": "Rooted in Siem Reap",
+    "point3Body": "Locally sourced, community-first, and proudly Cambodian.",
+    "since": "Serving since"
+  },
+  "menu": {
+    "chip": "The menu",
+    "title": "Crafted cups & kitchen bites",
+    "subtitle": "From bright single-origin pour-overs to comforting local plates — there's a brew for every build.",
+    "categories": {
+      "coffee": "Coffee",
+      "noncoffee": "Non-coffee",
+      "food": "Food"
+    },
+    "currency": "$",
+    "addToOrder": "Add to order",
+    "added": "Added!",
+    "popular": "Popular",
+    "items": {
+      "espresso": { "name": "KHode Espresso", "desc": "Double-shot, single-origin, velvety crema." },
+      "latte": { "name": "Cloud Latte", "desc": "Silky steamed milk over a balanced espresso base." },
+      "coldbrew": { "name": "16-Hour Cold Brew", "desc": "Slow-steeped, smooth, and naturally sweet." },
+      "khmercoffee": { "name": "Khmer Iced Coffee", "desc": "Bold robusta with condensed milk over ice." },
+      "matcha": { "name": "Matcha Forest", "desc": "Ceremonial matcha whisked with creamy oat milk." },
+      "coconut": { "name": "Coconut Cooler", "desc": "Fresh coconut, lime, and a hint of mint." },
+      "croissant": { "name": "Butter Croissant", "desc": "Flaky, golden, baked fresh every morning." },
+      "amok": { "name": "Fish Amok Bowl", "desc": "Cambodian classic with steamed jasmine rice." },
+      "avotoast": { "name": "Avocado Toast", "desc": "Sourdough, smashed avocado, chili & lime." }
+    }
+  },
+  "features": {
+    "chip": "Why KHode",
+    "title": "More than a café — a place to make things.",
+    "subtitle": "Thoughtful details that turn a coffee run into your most productive hour.",
+    "items": {
+      "wifi": { "title": "500 Mbps Wi‑Fi", "desc": "Fiber-fast, reliable, and free for every guest." },
+      "power": { "title": "Power at every seat", "desc": "Outlets and USB‑C within reach, always." },
+      "roast": { "title": "Fresh daily roast", "desc": "Beans roasted in-house, brewed within days." },
+      "quiet": { "title": "Focus-friendly", "desc": "Quiet zones and ambient playlists for deep work." },
+      "pay": { "title": "Scan & pay", "desc": "Instant ABA KHQR checkout — no cash needed." },
+      "open": { "title": "Open early, late", "desc": "From sunrise standups to midnight ship-its." }
+    }
+  },
+  "gallery": {
+    "chip": "The space",
+    "title": "Step inside KHode",
+    "subtitle": "Warm light, soft wood, and just the right amount of buzz."
+  },
+  "order": {
+    "title": "Your order",
+    "empty": "Your order is empty. Add something delicious!",
+    "subtotal": "Subtotal",
+    "tax": "VAT (10%)",
+    "total": "Total",
+    "checkout": "Checkout with KHQR",
+    "item": "item",
+    "items": "items",
+    "remove": "Remove",
+    "clear": "Clear all"
+  },
+  "auth": {
+    "title": "Welcome to KHode",
+    "subtitle": "Sign in with your phone to save orders & earn rewards.",
+    "phoneLabel": "Phone number",
+    "phonePlaceholder": "12 345 678",
+    "continue": "Continue",
+    "otpTitle": "Verify your number",
+    "otpSubtitle": "We sent a 6‑digit code to",
+    "otpResend": "Resend code",
+    "otpResendIn": "Resend in {{count}}s",
+    "verify": "Verify & continue",
+    "back": "Back",
+    "changeNumber": "Change number",
+    "success": "You're signed in!",
+    "successBody": "Welcome to the KHode community.",
+    "terms": "By continuing you agree to our Terms & Privacy Policy.",
+    "invalidPhone": "Please enter a valid phone number.",
+    "invalidOtp": "That code doesn't look right. Try again.",
+    "demoHint": "Demo: use code 123456",
+    "signedInAs": "Signed in",
+    "signOut": "Sign out"
+  },
+  "payment": {
+    "title": "Pay with ABA KHQR",
+    "subtitle": "Scan the QR with any banking app to complete payment.",
+    "amount": "Amount due",
+    "merchant": "KHode Café",
+    "scanHint": "Open your banking app · Scan to pay · Tap once paid",
+    "expiresIn": "QR expires in {{count}}s",
+    "expired": "QR expired",
+    "regenerate": "Generate new QR",
+    "simulate": "I've paid",
+    "processing": "Confirming payment…",
+    "success": "Payment successful",
+    "successBody": "Thank you! Your order is being prepared.",
+    "ref": "Reference",
+    "done": "Done",
+    "poweredBy": "Secured by ABA PayWay",
+    "currencyNote": "KHQR · USD accepted"
+  },
+  "contact": {
+    "chip": "Visit us",
+    "title": "Come build with us",
+    "subtitle": "Find us in the heart of Siem Reap. Walk in, plug in, and stay a while.",
+    "phone": "Phone",
+    "location": "Location",
+    "address": "Address",
+    "hours": "Hours",
+    "hoursValue": "Mon–Sun · 7:00 AM – 11:00 PM",
+    "getDirections": "Get directions",
+    "callUs": "Call us",
+    "locationName": "Le-Nou Siemreap Guesthouse",
+    "addressValue": "#0097, Street 63, Wat Svay Village, Sangkat Sala Komrerk, Siem Reap, Cambodia"
+  },
+  "newsletter": {
+    "title": "Get the good stuff",
+    "subtitle": "New brews, events, and member perks — straight to your inbox.",
+    "placeholder": "you@example.com",
+    "subscribe": "Subscribe",
+    "subscribed": "You're on the list!"
+  },
+  "footer": {
+    "blurb": "A code-inspired coffee house in Siem Reap. Brew. Build. Belong.",
+    "explore": "Explore",
+    "company": "Company",
+    "legal": "Legal",
+    "careers": "Careers",
+    "press": "Press",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies",
+    "pay": "We accept",
+    "rights": "All rights reserved.",
+    "madeWith": "Brewed with"
+  },
+  "common": {
+    "close": "Close",
+    "loading": "Loading…"
+  }
+}
