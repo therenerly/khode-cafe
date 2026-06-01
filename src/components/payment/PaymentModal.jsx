@@ -63,16 +63,17 @@ export default function PaymentModal({ open, onClose }) {
       labelledBy="pay-title"
       maxWidth="max-w-md"
     >
-      {/* ABA-styled header */}
-      <div className="rounded-t-3xl bg-gradient-to-br from-deep to-brand-700 px-6 py-5 text-white sm:px-8">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
+      {/* ABA-styled header — extra right padding reserves space for the
+          Modal's absolutely-positioned close button (top-4 right-4). */}
+      <div className="rounded-t-3xl bg-gradient-to-br from-deep to-brand-700 py-5 pl-6 pr-16 text-white sm:pl-8 sm:pr-20">
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex shrink-0 items-center gap-2.5">
             <span className="grid h-9 w-12 place-items-center rounded-lg bg-white/95 p-1.5">
               <img src="/aba-pay.svg" alt="ABA PayWay" className="h-full w-full object-contain" />
             </span>
             <span className="text-sm font-extrabold uppercase tracking-wide">KHQR</span>
           </div>
-          <span className="rounded-full bg-white/15 px-3 py-1 text-xs font-bold">
+          <span className="truncate rounded-full bg-white/15 px-3 py-1 text-xs font-bold">
             {t('payment.currencyNote')}
           </span>
         </div>
