@@ -4,10 +4,12 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 
 import en from './en.json'
 import km from './km.json'
+import ja from './ja.json'
 
 export const LANGS = {
   en: { label: 'English', native: 'English', flag: '/flags/en.svg', dir: 'ltr' },
   km: { label: 'Khmer', native: 'ខ្មែរ', flag: '/flags/km.svg', dir: 'ltr' },
+  ja: { label: 'Japanese', native: '日本語', flag: '/flags/ja.svg', dir: 'ltr' },
 }
 
 i18n
@@ -17,9 +19,10 @@ i18n
     resources: {
       en: { translation: en },
       km: { translation: km },
+      ja: { translation: ja },
     },
     fallbackLng: 'en',
-    supportedLngs: ['en', 'km'],
+    supportedLngs: ['en', 'km', 'ja'],
     detection: {
       order: ['localStorage', 'navigator', 'htmlTag'],
       lookupLocalStorage: 'khode-lang',

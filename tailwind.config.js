@@ -5,8 +5,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Urbanist', 'Hanuman', 'system-ui', 'sans-serif'],
+        sans: ['Urbanist', 'Hanuman', '"Kiwi Maru"', 'system-ui', 'sans-serif'],
         khmer: ['Hanuman', 'Urbanist', 'serif'],
+        jp: ['"Kiwi Maru"', 'Urbanist', 'serif'],
         display: ['Urbanist', 'Hanuman', 'sans-serif'],
       },
       colors: {

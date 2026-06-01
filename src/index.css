@@ -27,6 +27,12 @@
     @apply font-khmer leading-relaxed;
   }
 
+  /* Japanese: Kiwi Maru — rounded, friendly. Disable Latin stylistic sets. */
+  html[lang='ja'] body {
+    @apply font-jp leading-relaxed;
+    font-feature-settings: normal;
+  }
+
   /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 10px;
