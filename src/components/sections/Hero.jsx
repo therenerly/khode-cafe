@@ -77,7 +77,11 @@ export default function Hero() {
                 src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?auto=format&fit=crop&w=1100&q=80"
                 alt="Barista pouring latte art at KHode Café"
                 className="h-[420px] w-full object-cover sm:h-[520px]"
+                width="1100"
+                height="520"
                 loading="eager"
+                fetchpriority="high"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink-900/50 via-transparent to-transparent" />
             </div>

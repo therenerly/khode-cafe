@@ -1,21 +1,22 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { FiX } from 'react-icons/fi'
 import { useTranslation } from 'react-i18next'
+import { useScrollLock } from '../../hooks/useScrollLock.js'
+import { useFocusTrap } from '../../hooks/useFocusTrap.js'
 
 export default function Modal({ open, onClose, children, labelledBy, maxWidth = 'max-w-md' }) {
   const { t } = useTranslation()
+  const panelRef = useRef(null)
+
+  useScrollLock(open)
+  useFocusTrap(panelRef, open)
 
   useEffect(() => {
     if (!open) return
     const onKey = (e) => e.key === 'Escape' && onClose()
     document.addEventListener('keydown', onKey)
-    const prev = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.removeEventListener('keydown', onKey)
-      document.body.style.overflow = prev
-    }
+    return () => document.removeEventListener('keydown', onKey)
   }, [open, onClose])
 
   if (!open) return null
@@ -33,6 +34,7 @@ export default function Modal({ open, onClose, children, labelledBy, maxWidth = 
         aria-hidden="true"
       />
       <div
+        ref={panelRef}
         className={`relative w-full ${maxWidth} max-h-[92vh] overflow-y-auto rounded-t-3xl border border-white/10 bg-white shadow-2xl animate-fade-up sm:rounded-3xl dark:bg-ink-800`}
       >
         <button

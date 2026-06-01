@@ -1,10 +1,12 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { useTranslation } from 'react-i18next'
 import { FiX, FiMinus, FiPlus, FiTrash2, FiShoppingBag, FiArrowRight } from 'react-icons/fi'
 import { MENU } from '../../data/menu.js'
 import { useCart } from '../../context/CartContext.jsx'
 import { useUI } from '../../context/UIContext.jsx'
+import { useScrollLock } from '../../hooks/useScrollLock.js'
+import { useFocusTrap } from '../../hooks/useFocusTrap.js'
 
 const byId = Object.fromEntries(MENU.map((m) => [m.id, m]))
 
@@ -12,17 +14,16 @@ export default function CartDrawer() {
   const { t } = useTranslation()
   const { cartOpen, closeCart, openPayment } = useUI()
   const { list, count, subtotal, tax, total, setQty, remove, clear } = useCart()
+  const panelRef = useRef(null)
+
+  useScrollLock(cartOpen)
+  useFocusTrap(panelRef, cartOpen)
 
   useEffect(() => {
     if (!cartOpen) return
     const onKey = (e) => e.key === 'Escape' && closeCart()
     document.addEventListener('keydown', onKey)
-    const prev = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.removeEventListener('keydown', onKey)
-      document.body.style.overflow = prev
-    }
+    return () => document.removeEventListener('keydown', onKey)
   }, [cartOpen, closeCart])
 
   const fmt = (n) => `${t('menu.currency')}${n.toFixed(2)}`
@@ -42,9 +43,12 @@ export default function CartDrawer() {
 
       {/* Panel */}
       <aside
+        ref={panelRef}
         role="dialog"
         aria-modal="true"
         aria-label={t('order.title')}
+        aria-hidden={!cartOpen}
+        inert={cartOpen ? undefined : ''}
         className={`absolute right-0 top-0 flex h-full w-full max-w-md flex-col bg-white shadow-2xl transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] dark:bg-ink-800 ${
           cartOpen ? 'translate-x-0' : 'translate-x-full'
         }`}

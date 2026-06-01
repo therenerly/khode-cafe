@@ -1,3 +1,4 @@
+import { Suspense, lazy } from 'react'
 import { UIProvider, useUI } from './context/UIContext.jsx'
 import { useReveal } from './hooks/useReveal.js'
 
@@ -10,9 +11,12 @@ import Features from './components/sections/Features.jsx'
 import Gallery from './components/sections/Gallery.jsx'
 import Contact from './components/sections/Contact.jsx'
 import BackToTop from './components/ui/BackToTop.jsx'
-import AuthModal from './components/auth/AuthModal.jsx'
 import CartDrawer from './components/cart/CartDrawer.jsx'
-import PaymentModal from './components/payment/PaymentModal.jsx'
+
+// Code-split the auth & payment flows — they only load on first open,
+// trimming the initial JS the landing page has to download & parse.
+const AuthModal = lazy(() => import('./components/auth/AuthModal.jsx'))
+const PaymentModal = lazy(() => import('./components/payment/PaymentModal.jsx'))
 
 function Shell() {
   const { authOpen, closeAuth, paymentOpen, closePayment } = useUI()
@@ -33,8 +37,17 @@ function Shell() {
 
       <BackToTop />
       <CartDrawer />
-      <AuthModal open={authOpen} onClose={closeAuth} />
-      <PaymentModal open={paymentOpen} onClose={closePayment} />
+
+      {authOpen && (
+        <Suspense fallback={null}>
+          <AuthModal open onClose={closeAuth} />
+        </Suspense>
+      )}
+      {paymentOpen && (
+        <Suspense fallback={null}>
+          <PaymentModal open onClose={closePayment} />
+        </Suspense>
+      )}
     </div>
   )
 }

@@ -1,14 +1,8 @@
-import { useEffect, useState } from 'react'
 import { FiArrowUp } from 'react-icons/fi'
+import { useScrolled } from '../../hooks/useScrolled.js'
 
 export default function BackToTop() {
-  const [show, setShow] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setShow(window.scrollY > 600)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  const show = useScrolled(600)
 
   return (
     <button

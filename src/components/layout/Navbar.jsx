@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
   FiMenu,
@@ -19,6 +19,9 @@ import LanguageToggle from '../ui/LanguageToggle.jsx'
 import { useUI } from '../../context/UIContext.jsx'
 import { useCart } from '../../context/CartContext.jsx'
 import { useAuth } from '../../context/AuthContext.jsx'
+import { useScrolled } from '../../hooks/useScrolled.js'
+import { useScrollLock } from '../../hooks/useScrollLock.js'
+import { useScrollSpy } from '../../hooks/useScrollSpy.js'
 
 const LINKS = [
   ['home', '#home', FiHome],
@@ -29,27 +32,18 @@ const LINKS = [
   ['contact', '#contact', FiMapPin],
 ]
 
+const SECTION_IDS = LINKS.map(([key]) => key)
+
 export default function Navbar() {
   const { t } = useTranslation()
   const { openAuth, openCart } = useUI()
   const { count } = useCart()
   const { isAuthed, user, signOut } = useAuth()
-  const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const scrolled = useScrolled(16)
+  const activeId = useScrollSpy(SECTION_IDS)
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : ''
-    return () => {
-      document.body.style.overflow = ''
-    }
-  }, [open])
+  useScrollLock(open)
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
@@ -65,17 +59,25 @@ export default function Navbar() {
 
           {/* Desktop links */}
           <ul className="hidden items-center gap-1 lg:flex">
-            {LINKS.map(([key, href, Icon]) => (
-              <li key={key}>
-                <a
-                  href={href}
-                  className="inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-semibold text-slate-600 transition-colors hover:bg-brand-500/10 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-300"
-                >
-                  <Icon className="h-4 w-4" />
-                  {t(`nav.${key}`)}
-                </a>
-              </li>
-            ))}
+            {LINKS.map(([key, href, Icon]) => {
+              const isActive = activeId === key
+              return (
+                <li key={key}>
+                  <a
+                    href={href}
+                    aria-current={isActive ? 'true' : undefined}
+                    className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-semibold transition-colors ${
+                      isActive
+                        ? 'bg-brand-500/10 text-brand-600 dark:text-brand-300'
+                        : 'text-slate-600 hover:bg-brand-500/10 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-300'
+                    }`}
+                  >
+                    <Icon className="h-4 w-4" />
+                    {t(`nav.${key}`)}
+                  </a>
+                </li>
+              )
+            })}
           </ul>
 
           {/* Actions */}
