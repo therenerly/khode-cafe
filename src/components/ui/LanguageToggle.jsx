@@ -3,10 +3,25 @@ import { useTranslation } from 'react-i18next'
 import { FiCheck, FiChevronDown } from 'react-icons/fi'
 import { LANGS } from '../../i18n'
 
-export default function LanguageToggle({ className = '' }) {
+export default function LanguageToggle({ className = '', align = 'right', drop = 'down' }) {
   const { i18n, t } = useTranslation()
   const [open, setOpen] = useState(false)
   const ref = useRef(null)
+
+  // Position the dropdown so it never runs off-screen. In the navbar the
+  // toggle sits on the right (align right, opens down); in the mobile drawer
+  // it sits on the left near the bottom (align left, opens up).
+  // NOTE: full literal class names so Tailwind's scanner picks them up.
+  const posX = align === 'left' ? 'left-0' : 'right-0'
+  const posY = drop === 'up' ? 'bottom-full mb-2' : 'top-full mt-2'
+  const origin =
+    drop === 'up'
+      ? align === 'left'
+        ? 'origin-bottom-left'
+        : 'origin-bottom-right'
+      : align === 'left'
+        ? 'origin-top-left'
+        : 'origin-top-right'
 
   const current = (i18n.language || 'en').split('-')[0]
   const active = LANGS[current] ? current : 'en'
@@ -52,7 +67,7 @@ export default function LanguageToggle({ className = '' }) {
 
       <div
         role="listbox"
-        className={`absolute right-0 z-50 mt-2 w-44 origin-top-right overflow-hidden rounded-2xl border border-slate-200 bg-white p-1.5 shadow-soft transition-all duration-200 dark:border-white/10 dark:bg-ink-800 ${
+        className={`absolute z-50 w-44 overflow-hidden rounded-2xl border border-slate-200 bg-white p-1.5 shadow-soft transition-all duration-200 dark:border-white/10 dark:bg-ink-800 ${posX} ${posY} ${origin} ${
           open ? 'visible scale-100 opacity-100' : 'invisible scale-95 opacity-0'
         }`}
       >

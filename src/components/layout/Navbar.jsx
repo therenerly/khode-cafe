@@ -150,7 +150,7 @@ export default function Navbar() {
           ))}
 
           <div className="mt-4 flex items-center gap-3">
-            <LanguageToggle />
+            <LanguageToggle align="left" drop="up" />
             <ThemeToggle />
           </div>
 
