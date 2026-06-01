@@ -12,6 +12,9 @@ export default function About() {
 
   return (
     <section id="about" className="relative scroll-mt-24 py-20 sm:py-28">
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute -left-24 top-1/3 h-72 w-72 rounded-full bg-coffee-400/10 blur-[120px]" />
+      </div>
       <div className="container-px grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
         {/* Image collage */}
         <div className="relative reveal">
@@ -59,11 +62,17 @@ export default function About() {
             {t('about.body')}
           </p>
 
-          <div className="mt-8 space-y-5">
-            {points.map(({ icon: Icon, title, body }) => (
-              <div key={title} className="flex gap-4">
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-brand-500/15 to-deep/15 text-brand-600 ring-1 ring-brand-500/20 dark:text-brand-300">
+          <div className="mt-8 space-y-3">
+            {points.map(({ icon: Icon, title, body }, i) => (
+              <div
+                key={title}
+                className="group flex items-start gap-4 rounded-2xl border border-transparent p-3 transition-all hover:border-brand-500/20 hover:bg-brand-500/[0.04]"
+              >
+                <span className="relative grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-brand-500/15 to-deep/15 text-brand-600 ring-1 ring-brand-500/20 transition-transform duration-300 group-hover:-rotate-6 dark:text-brand-300">
                   <Icon className="h-5 w-5" />
+                  <span className="absolute -right-1.5 -top-1.5 grid h-5 w-5 place-items-center rounded-full bg-deep text-[10px] font-black text-white ring-2 ring-white dark:ring-ink-900">
+                    {i + 1}
+                  </span>
                 </span>
                 <div>
                   <h3 className="font-display text-lg font-bold">{title}</h3>

@@ -1,8 +1,11 @@
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { FiPlus, FiCheck, FiGrid, FiCoffee, FiDroplet } from 'react-icons/fi'
+import { FiPlus, FiCheck, FiStar, FiGrid, FiCoffee, FiDroplet } from 'react-icons/fi'
 import { MdOutlineRestaurant } from 'react-icons/md'
 import { MENU, MENU_CATEGORIES } from '../../data/menu.js'
+import { useCart } from '../../context/CartContext.jsx'
+import { useReveal } from '../../hooks/useReveal.js'
+import SectionHeading from '../ui/SectionHeading.jsx'
 
 const CATEGORY_ICONS = {
   all: FiGrid,
@@ -10,8 +13,6 @@ const CATEGORY_ICONS = {
   noncoffee: FiDroplet,
   food: MdOutlineRestaurant,
 }
-import { useCart } from '../../context/CartContext.jsx'
-import { useReveal } from '../../hooks/useReveal.js'
 
 function MenuCard({ product }) {
   const { t } = useTranslation()
@@ -25,32 +26,33 @@ function MenuCard({ product }) {
   }
 
   return (
-    <article className="group card reveal overflow-hidden hover:-translate-y-1.5 hover:shadow-glow">
+    <article className="group card reveal flex flex-col overflow-hidden ring-1 ring-transparent transition-all hover:-translate-y-1.5 hover:shadow-glow hover:ring-brand-500/30">
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
           src={product.image}
           alt={t(`menu.items.${product.key}.name`)}
           loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink-900/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink-900/60 via-ink-900/0 to-transparent" />
         {product.popular && (
-          <span className="absolute left-3 top-3 rounded-full bg-coffee-500/90 px-3 py-1 text-[11px] font-extrabold uppercase tracking-wide text-white shadow-lg backdrop-blur">
+          <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-coffee-500/90 px-3 py-1 text-[11px] font-extrabold uppercase tracking-wide text-white shadow-lg backdrop-blur">
+            <FiStar className="h-3 w-3 fill-current" />
             {t('menu.popular')}
           </span>
         )}
+        {/* Price pill overlaps the image bottom edge */}
+        <span className="absolute -bottom-4 right-4 grid h-12 min-w-12 place-items-center rounded-2xl bg-white px-3 font-display text-lg font-extrabold text-deep shadow-soft ring-1 ring-black/5 dark:bg-ink-700 dark:text-brand-200">
+          {t('menu.currency')}
+          {product.price.toFixed(2)}
+        </span>
       </div>
 
-      <div className="flex flex-col p-5">
-        <div className="flex items-start justify-between gap-3">
-          <h3 className="font-display text-lg font-bold leading-tight">
-            {t(`menu.items.${product.key}.name`)}
-          </h3>
-          <span className="shrink-0 font-display text-lg font-extrabold text-brand-600 dark:text-brand-300">
-            {t('menu.currency')}
-            {product.price.toFixed(2)}
-          </span>
-        </div>
+      <div className="flex flex-1 flex-col p-5 pt-6">
+        <h3 className="pr-14 font-display text-lg font-bold leading-tight">
+          {t(`menu.items.${product.key}.name`)}
+        </h3>
         <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
           {t(`menu.items.${product.key}.desc`)}
         </p>
@@ -100,13 +102,11 @@ export default function Menu() {
       </div>
 
       <div className="container-px">
-        <div className="mx-auto max-w-2xl text-center reveal">
-          <span className="chip">{t('menu.chip')}</span>
-          <h2 className="mt-5 section-title text-balance">{t('menu.title')}</h2>
-          <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-lg">
-            {t('menu.subtitle')}
-          </p>
-        </div>
+        <SectionHeading
+          chip={t('menu.chip')}
+          title={t('menu.title')}
+          subtitle={t('menu.subtitle')}
+        />
 
         {/* Tabs */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-2 reveal">

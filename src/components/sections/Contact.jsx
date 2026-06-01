@@ -31,6 +31,9 @@ export default function Contact() {
 
   return (
     <section id="contact" className="relative scroll-mt-24 py-20 sm:py-28">
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-brand-500/10 blur-[120px]" />
+      </div>
       <div className="container-px">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
           {/* Info */}
@@ -107,12 +110,23 @@ export default function Contact() {
           {/* Map */}
           <div className="reveal lg:col-span-7">
             <div className="card overflow-hidden p-2 shadow-soft">
+              {/* Map label bar */}
+              <div className="flex items-center justify-between gap-3 px-3 py-2.5">
+                <span className="inline-flex items-center gap-2 text-sm font-bold text-deep dark:text-brand-200">
+                  <FiMapPin className="h-4 w-4 text-brand-500" />
+                  {t('contact.locationName')}
+                </span>
+                <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-emerald-600 dark:text-emerald-400">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />
+                  {t('hero.stat3')}
+                </span>
+              </div>
               <iframe
                 title="KHode Café location — Le-Nou Siemreap Guesthouse"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4185.375824551374!2d103.85088597540755!3d13.34481918700596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3110170031c639b5%3A0x3ccd9e79d92ee6b7!2sLe-nou%20Siemreap%20Guesthouse!5e1!3m2!1sen!2skh!4v1780121344468!5m2!1sen!2skh"
                 width="100%"
                 height="100%"
-                style={{ border: 0, minHeight: '460px' }}
+                style={{ border: 0, minHeight: '440px' }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
