@@ -17,7 +17,7 @@ export default function Features() {
   const [hero, ...rest] = FEATURES
 
   return (
-    <section id="features" className="relative scroll-mt-24 py-20 sm:py-28">
+    <section id="features" className="relative scroll-mt-24 py-24 sm:py-32">
       {/* Section background rhythm */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-slate-50/60 dark:bg-white/[0.015]" />
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">

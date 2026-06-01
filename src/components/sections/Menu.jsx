@@ -81,14 +81,85 @@ function MenuCard({ product }) {
   )
 }
 
+const FEATURED_ID = 'amok'
+
+function FeaturedCard({ product }) {
+  const { t } = useTranslation()
+  const { add } = useCart()
+  const [added, setAdded] = useState(false)
+
+  const handleAdd = () => {
+    add(product)
+    setAdded(true)
+    setTimeout(() => setAdded(false), 1200)
+  }
+
+  return (
+    <article className="group card reveal mb-6 grid overflow-hidden ring-1 ring-transparent transition-all hover:shadow-glow hover:ring-brand-500/30 md:grid-cols-2">
+      <div className="relative aspect-[16/10] overflow-hidden md:aspect-auto">
+        <img
+          src={product.image}
+          alt={t(`menu.items.${product.key}.name`)}
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink-900/50 to-transparent md:bg-gradient-to-r" />
+        <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-coffee-500/90 px-3 py-1 text-[11px] font-extrabold uppercase tracking-wide text-white shadow-lg backdrop-blur">
+          <FiStar className="h-3 w-3 fill-current" />
+          {t('menu.featured')}
+        </span>
+      </div>
+
+      <div className="flex flex-col justify-center gap-4 p-7 sm:p-9">
+        <span className="chip w-fit">{t('menu.featured')}</span>
+        <h3 className="font-display text-2xl font-extrabold leading-tight sm:text-3xl">
+          {t(`menu.items.${product.key}.name`)}
+        </h3>
+        <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
+          {t(`menu.items.${product.key}.desc`)}
+        </p>
+        <div className="mt-2 flex items-center gap-5">
+          <span className="font-display text-3xl font-black gradient-text">
+            {t('menu.currency')}
+            {product.price.toFixed(2)}
+          </span>
+          <button
+            type="button"
+            onClick={handleAdd}
+            className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all duration-300 ${
+              added
+                ? 'bg-emerald-500 text-white'
+                : 'bg-gradient-to-r from-brand-500 to-deep text-white shadow-glow hover:-translate-y-0.5'
+            }`}
+          >
+            {added ? (
+              <>
+                <FiCheck className="h-4 w-4" /> {t('menu.added')}
+              </>
+            ) : (
+              <>
+                <FiPlus className="h-4 w-4" /> {t('menu.addToOrder')}
+              </>
+            )}
+          </button>
+        </div>
+      </div>
+    </article>
+  )
+}
+
 export default function Menu() {
   const { t } = useTranslation()
   const [active, setActive] = useState('all')
 
-  const filtered = useMemo(
-    () => (active === 'all' ? MENU : MENU.filter((m) => m.category === active)),
-    [active]
-  )
+  const featured = MENU.find((m) => m.id === FEATURED_ID)
+  const showFeatured = active === 'all'
+
+  const filtered = useMemo(() => {
+    const base = active === 'all' ? MENU : MENU.filter((m) => m.category === active)
+    return showFeatured ? base.filter((m) => m.id !== FEATURED_ID) : base
+  }, [active, showFeatured])
 
   // Re-run reveal observer whenever the visible set changes.
   useReveal([active])
@@ -96,7 +167,7 @@ export default function Menu() {
   const tabs = ['all', ...MENU_CATEGORIES]
 
   return (
-    <section id="menu" className="relative scroll-mt-24 py-20 sm:py-28">
+    <section id="menu" className="relative scroll-mt-24 py-24 sm:py-32">
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute right-0 top-1/4 h-72 w-72 rounded-full bg-brand-500/10 blur-[120px]" />
       </div>
@@ -131,11 +202,16 @@ export default function Menu() {
           })}
         </div>
 
-        {/* Grid */}
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((product) => (
-            <MenuCard key={product.id} product={product} />
-          ))}
+        {/* Featured editorial card (on the "all" tab) */}
+        <div className="mt-10">
+          {showFeatured && featured && <FeaturedCard product={featured} />}
+
+          {/* Grid */}
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {filtered.map((product) => (
+              <MenuCard key={product.id} product={product} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

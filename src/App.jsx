@@ -8,7 +8,9 @@ import Hero from './components/sections/Hero.jsx'
 import About from './components/sections/About.jsx'
 import Menu from './components/sections/Menu.jsx'
 import Features from './components/sections/Features.jsx'
+import Testimonials from './components/sections/Testimonials.jsx'
 import Gallery from './components/sections/Gallery.jsx'
+import CtaBand from './components/sections/CtaBand.jsx'
 import Contact from './components/sections/Contact.jsx'
 import BackToTop from './components/ui/BackToTop.jsx'
 import CartDrawer from './components/cart/CartDrawer.jsx'
@@ -30,7 +32,9 @@ function Shell() {
         <About />
         <Menu />
         <Features />
+        <Testimonials />
         <Gallery />
+        <CtaBand />
         <Contact />
       </main>
       <Footer />

@@ -9,7 +9,7 @@ export default function Gallery() {
   const { t } = useTranslation()
 
   return (
-    <section id="gallery" className="relative scroll-mt-24 py-20 sm:py-28">
+    <section id="gallery" className="relative scroll-mt-24 py-24 sm:py-32">
       <div className="container-px">
         <SectionHeading
           chip={t('gallery.chip')}

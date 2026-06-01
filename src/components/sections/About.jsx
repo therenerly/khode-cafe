@@ -11,7 +11,7 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="relative scroll-mt-24 py-20 sm:py-28">
+    <section id="about" className="relative scroll-mt-24 py-24 sm:py-32">
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute -left-24 top-1/3 h-72 w-72 rounded-full bg-coffee-400/10 blur-[120px]" />
       </div>

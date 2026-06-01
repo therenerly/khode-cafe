@@ -70,6 +70,7 @@
     "addToOrder": "Add to order",
     "added": "Added!",
     "popular": "Popular",
+    "featured": "Signature pick",
     "items": {
       "espresso": { "name": "KHode Espresso", "desc": "A velvety double shot with caramel sweetness and a long, clean finish." },
       "latte": { "name": "Cloud Latte", "desc": "Silky micro‑foam poured over a balanced, chocolatey espresso." },
@@ -99,6 +100,36 @@
     "chip": "The space",
     "title": "Step inside KHode",
     "subtitle": "Warm light, soft wood, and just the right amount of hum."
+  },
+  "testimonials": {
+    "chip": "Loved by locals",
+    "title": "What our regulars say",
+    "subtitle": "From remote workers to weekend wanderers — here's why people keep coming back.",
+    "rating": "4.9 / 5 average · 1,200+ reviews",
+    "items": {
+      "sophea": {
+        "name": "Sophea Chan",
+        "role": "Software developer",
+        "quote": "My second office. The Wi‑Fi never drops, the cold brew is unreal, and nobody rushes you out. I ship my best work here."
+      },
+      "marco": {
+        "name": "Marco Rossi",
+        "role": "Digital nomad",
+        "quote": "I've worked from cafés in 30 countries — KHode is top three. Fast internet, real espresso, and the calmest corner in Siem Reap."
+      },
+      "dara": {
+        "name": "Dara Kim",
+        "role": "Design student",
+        "quote": "Beautiful space, kind staff, and paying with KHQR takes two seconds. It's my go-to for late-night study sessions."
+      }
+    }
+  },
+  "cta": {
+    "chip": "Ready when you are",
+    "title": "Scan. Order. Sip.",
+    "subtitle": "Skip the queue — order ahead and pay with ABA KHQR in seconds.",
+    "button": "Order with KHQR",
+    "secondary": "Browse the menu"
   },
   "order": {
     "title": "Your order",
