@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { FiArrowRight, FiArrowDown, FiWifi, FiStar } from 'react-icons/fi'
+import { FiArrowRight, FiArrowDown, FiWifi, FiStar, FiCoffee } from 'react-icons/fi'
+import { MdQrCodeScanner } from 'react-icons/md'
 import { HiOutlineSparkles } from 'react-icons/hi2'
 import { useUI } from '../../context/UIContext.jsx'
 
@@ -39,10 +40,12 @@ export default function Hero() {
 
           <div className="mt-8 flex flex-col gap-3 animate-fade-up [animation-delay:240ms] sm:flex-row sm:items-center">
             <button type="button" onClick={openCart} className="btn-primary group">
+              <MdQrCodeScanner className="h-4 w-4" />
               {t('hero.ctaPrimary')}
               <FiArrowRight className="transition-transform group-hover:translate-x-1" />
             </button>
-            <a href="#menu" className="btn-ghost">
+            <a href="#menu" className="btn-ghost group">
+              <FiCoffee className="h-4 w-4" />
               {t('hero.ctaSecondary')}
             </a>
           </div>

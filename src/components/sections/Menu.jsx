@@ -1,7 +1,15 @@
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { FiPlus, FiCheck } from 'react-icons/fi'
+import { FiPlus, FiCheck, FiGrid, FiCoffee, FiDroplet } from 'react-icons/fi'
+import { MdOutlineRestaurant } from 'react-icons/md'
 import { MENU, MENU_CATEGORIES } from '../../data/menu.js'
+
+const CATEGORY_ICONS = {
+  all: FiGrid,
+  coffee: FiCoffee,
+  noncoffee: FiDroplet,
+  food: MdOutlineRestaurant,
+}
 import { useCart } from '../../context/CartContext.jsx'
 import { useReveal } from '../../hooks/useReveal.js'
 
@@ -104,20 +112,20 @@ export default function Menu() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-2 reveal">
           {tabs.map((cat) => {
             const isActive = active === cat
+            const Icon = CATEGORY_ICONS[cat] || FiGrid
             return (
               <button
                 key={cat}
                 type="button"
                 onClick={() => setActive(cat)}
-                className={`rounded-full px-5 py-2.5 text-sm font-bold transition-all duration-300 ${
+                className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold transition-all duration-300 ${
                   isActive
                     ? 'bg-gradient-to-r from-brand-500 to-deep text-white shadow-glow'
                     : 'border border-slate-200/80 bg-white/60 text-slate-600 hover:border-brand-500/40 hover:text-brand-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300'
                 }`}
               >
-                {cat === 'all'
-                  ? t('nav.menu')
-                  : t(`menu.categories.${cat}`)}
+                <Icon className="h-4 w-4" />
+                {cat === 'all' ? t('nav.menu') : t(`menu.categories.${cat}`)}
               </button>
             )
           })}

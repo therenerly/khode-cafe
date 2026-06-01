@@ -1,6 +1,18 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { FiMenu, FiX, FiShoppingBag, FiUser, FiLogOut } from 'react-icons/fi'
+import {
+  FiMenu,
+  FiX,
+  FiShoppingBag,
+  FiUser,
+  FiLogOut,
+  FiHome,
+  FiInfo,
+  FiCoffee,
+  FiZap,
+  FiImage,
+  FiMapPin,
+} from 'react-icons/fi'
 import Logo from '../ui/Logo.jsx'
 import ThemeToggle from '../ui/ThemeToggle.jsx'
 import LanguageToggle from '../ui/LanguageToggle.jsx'
@@ -9,12 +21,12 @@ import { useCart } from '../../context/CartContext.jsx'
 import { useAuth } from '../../context/AuthContext.jsx'
 
 const LINKS = [
-  ['home', '#home'],
-  ['about', '#about'],
-  ['menu', '#menu'],
-  ['features', '#features'],
-  ['gallery', '#gallery'],
-  ['contact', '#contact'],
+  ['home', '#home', FiHome],
+  ['about', '#about', FiInfo],
+  ['menu', '#menu', FiCoffee],
+  ['features', '#features', FiZap],
+  ['gallery', '#gallery', FiImage],
+  ['contact', '#contact', FiMapPin],
 ]
 
 export default function Navbar() {
@@ -53,12 +65,13 @@ export default function Navbar() {
 
           {/* Desktop links */}
           <ul className="hidden items-center gap-1 lg:flex">
-            {LINKS.map(([key, href]) => (
+            {LINKS.map(([key, href, Icon]) => (
               <li key={key}>
                 <a
                   href={href}
-                  className="rounded-full px-3.5 py-2 text-sm font-semibold text-slate-600 transition-colors hover:bg-brand-500/10 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-300"
+                  className="inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-semibold text-slate-600 transition-colors hover:bg-brand-500/10 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-300"
                 >
+                  <Icon className="h-4 w-4" />
                   {t(`nav.${key}`)}
                 </a>
               </li>
@@ -135,16 +148,19 @@ export default function Navbar() {
         }`}
       >
         <div className="container-px flex h-[calc(100vh-4rem)] flex-col gap-1 overflow-y-auto py-6">
-          {LINKS.map(([key, href], i) => (
+          {LINKS.map(([key, href, Icon], i) => (
             <a
               key={key}
               href={href}
               onClick={() => setOpen(false)}
               style={{ transitionDelay: open ? `${i * 40}ms` : '0ms' }}
-              className={`rounded-2xl px-4 py-4 text-lg font-bold text-slate-700 transition-all hover:bg-brand-500/10 hover:text-brand-600 dark:text-slate-200 ${
+              className={`flex items-center gap-3 rounded-2xl px-4 py-4 text-lg font-bold text-slate-700 transition-all hover:bg-brand-500/10 hover:text-brand-600 dark:text-slate-200 ${
                 open ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
               }`}
             >
+              <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-300">
+                <Icon className="h-[18px] w-[18px]" />
+              </span>
               {t(`nav.${key}`)}
             </a>
           ))}

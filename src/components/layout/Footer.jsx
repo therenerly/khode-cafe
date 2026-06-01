@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { FiArrowRight, FiCheck, FiCoffee } from 'react-icons/fi'
+import { FiArrowRight, FiCheck, FiCoffee, FiChevronRight } from 'react-icons/fi'
 import { FaFacebookF, FaInstagram, FaTelegramPlane, FaTiktok } from 'react-icons/fa'
 import Logo from '../ui/Logo.jsx'
 
@@ -118,8 +118,9 @@ export default function Footer() {
                   <li key={labelKey}>
                     <a
                       href={href}
-                      className="text-sm font-medium text-slate-600 transition hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-300"
+                      className="group inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 transition hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-300"
                     >
+                      <FiChevronRight className="h-3.5 w-3.5 text-brand-500/60 transition-transform group-hover:translate-x-0.5" />
                       {t(labelKey)}
                     </a>
                   </li>
@@ -135,10 +136,10 @@ export default function Footer() {
             {t('footer.pay')}
           </h4>
           <div className="mt-4 flex flex-wrap items-center gap-3">
-            <span className="grid h-12 w-20 place-items-center rounded-xl border border-slate-200/80 bg-white p-2 dark:border-white/10 dark:bg-white/95">
-              <img src="/aba-pay.svg" alt="ABA PayWay" className="h-full w-full object-contain" />
+            <span className="inline-flex h-12 items-center rounded-xl border border-slate-200/80 bg-white px-3 dark:border-white/10 dark:bg-white/95">
+              <img src="/aba-pay.svg" alt="ABA PayWay" className="h-7 w-auto" />
             </span>
-            <span className="inline-flex h-12 items-center gap-2 rounded-xl border border-slate-200/80 bg-white px-3 text-sm font-bold text-deep dark:border-white/10 dark:bg-white/95">
+            <span className="inline-flex h-12 items-center gap-2 rounded-xl border border-slate-200/80 bg-white px-4 text-sm font-bold text-deep dark:border-white/10 dark:bg-white/95">
               <img src="/switch-lang.svg" alt="" className="h-5 w-5" /> KHQR
             </span>
           </div>

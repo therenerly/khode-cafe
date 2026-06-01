@@ -1,6 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { FiPhone, FiArrowRight, FiArrowLeft, FiShield, FiCheckCircle } from 'react-icons/fi'
+import {
+  FiPhone,
+  FiArrowRight,
+  FiArrowLeft,
+  FiShield,
+  FiCheckCircle,
+  FiRefreshCw,
+  FiCheck,
+} from 'react-icons/fi'
 import Modal from '../ui/Modal.jsx'
 import { LANGS } from '../../i18n'
 import { useAuth } from '../../context/AuthContext.jsx'
@@ -224,8 +232,9 @@ export default function AuthModal({ open, onClose }) {
                 <button
                   type="button"
                   onClick={() => setCountdown(RESEND_SECONDS)}
-                  className="font-bold text-brand-600 hover:underline dark:text-brand-300"
+                  className="inline-flex items-center gap-1.5 font-bold text-brand-600 hover:underline dark:text-brand-300"
                 >
+                  <FiRefreshCw className="h-3.5 w-3.5" />
                   {t('auth.otpResend')}
                 </button>
               )}
@@ -245,6 +254,7 @@ export default function AuthModal({ open, onClose }) {
               {t('auth.successBody')}
             </p>
             <button onClick={onClose} className="btn-primary mt-6 w-full">
+              <FiCheck className="h-4 w-4" />
               {t('payment.done')}
             </button>
           </div>

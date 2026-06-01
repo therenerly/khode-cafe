@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { FiCheckCircle, FiRefreshCw, FiClock } from 'react-icons/fi'
+import { FiCheckCircle, FiRefreshCw, FiClock, FiCheck } from 'react-icons/fi'
 import Modal from '../ui/Modal.jsx'
 import KhqrCode from './KhqrCode.jsx'
 import { useCart } from '../../context/CartContext.jsx'
@@ -68,8 +68,8 @@ export default function PaymentModal({ open, onClose }) {
       <div className="rounded-t-3xl bg-gradient-to-br from-deep to-brand-700 py-5 pl-6 pr-16 text-white sm:pl-8 sm:pr-20">
         <div className="flex items-center justify-between gap-3">
           <div className="flex shrink-0 items-center gap-2.5">
-            <span className="grid h-9 w-12 place-items-center rounded-lg bg-white/95 p-1.5">
-              <img src="/aba-pay.svg" alt="ABA PayWay" className="h-full w-full object-contain" />
+            <span className="inline-flex h-9 items-center rounded-lg bg-white px-2 shadow-sm">
+              <img src="/aba-pay.svg" alt="ABA PayWay" className="h-5 w-auto" />
             </span>
             <span className="text-sm font-extrabold uppercase tracking-wide">KHQR</span>
           </div>
@@ -96,6 +96,7 @@ export default function PaymentModal({ open, onClose }) {
               <span className="font-mono text-xs font-bold">{reference}</span>
             </div>
             <button onClick={finish} className="btn-primary mt-6 w-full">
+              <FiCheck className="h-4 w-4" />
               {t('payment.done')}
             </button>
           </div>
