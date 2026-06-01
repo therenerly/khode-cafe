@@ -10,7 +10,7 @@
     "menu": "Menu",
     "features": "Why KHode",
     "gallery": "Gallery",
-    "contact": "Contact",
+    "contact": "Visit",
     "signIn": "Sign in",
     "order": "Order now"
   },
@@ -21,45 +21,49 @@
   "lang": {
     "switch": "Switch language",
     "en": "English",
-    "km": "Khmer"
+    "km": "Khmer",
+    "ja": "Japanese"
   },
   "hero": {
     "badge": "Specialty coffee · Siem Reap",
     "title": "Where great coffee meets clean code.",
-    "subtitle": "A calm, creative coffee house for makers, students, and dreamers. Single-origin brews, blazing Wi‑Fi, and a space designed to help you focus.",
+    "subtitle": "A calm, creative coffee house for makers, students, and dreamers. Single‑origin brews, gigabit Wi‑Fi, and a room engineered for deep focus.",
     "ctaPrimary": "Order with KHQR",
     "ctaSecondary": "Explore the menu",
-    "stat1": "Specialty drinks",
+    "stat1": "Signature drinks",
     "stat2": "Avg. brew time",
     "stat3": "Open daily",
+    "reviews": "1,200+ reviews",
+    "wifiValue": "1",
+    "wifiUnit": "Gbps free Wi‑Fi",
     "scroll": "Scroll to explore",
     "ticker": [
-      "Single-origin espresso",
-      "Free 500 Mbps Wi‑Fi",
+      "Single‑origin espresso",
+      "Free gigabit Wi‑Fi",
       "Quiet focus corners",
-      "Cambodian-grown beans",
+      "Cambodian‑grown beans",
       "ABA KHQR accepted"
     ]
   },
   "about": {
     "chip": "Our story",
     "title": "A coffee house built for the curious.",
-    "body": "KHode began as a late-night idea between a barista and a developer: a place where the warmth of Cambodian hospitality meets the focus of a great workspace. Every cup is brewed with intention, every corner designed for flow.",
-    "point1Title": "Crafted, not rushed",
-    "point1Body": "Beans roasted in small batches and pulled to order by trained baristas.",
-    "point2Title": "Built for focus",
-    "point2Body": "Fast Wi‑Fi, plentiful power, and quiet zones for deep work.",
+    "body": "KHode started as a midnight conversation between a barista and a developer — a place where Cambodian hospitality meets the quiet focus of a great workspace. We brew every cup with intention, and design every corner for flow.",
+    "point1Title": "Crafted, never rushed",
+    "point1Body": "Small‑batch beans, pulled to order by baristas who sweat the details.",
+    "point2Title": "Engineered for focus",
+    "point2Body": "Fast Wi‑Fi, power at every seat, and quiet zones for deep work.",
     "point3Title": "Rooted in Siem Reap",
-    "point3Body": "Locally sourced, community-first, and proudly Cambodian.",
+    "point3Body": "Locally sourced, community‑first, and proudly Cambodian.",
     "since": "Serving since"
   },
   "menu": {
     "chip": "The menu",
     "title": "Crafted cups & kitchen bites",
-    "subtitle": "From bright single-origin pour-overs to comforting local plates — there's a brew for every build.",
+    "subtitle": "From bright single‑origin pour‑overs to comforting Khmer plates — there's a brew for every build.",
     "categories": {
       "coffee": "Coffee",
-      "noncoffee": "Non-coffee",
+      "noncoffee": "Non‑coffee",
       "food": "Food"
     },
     "currency": "$",
@@ -67,38 +71,38 @@
     "added": "Added!",
     "popular": "Popular",
     "items": {
-      "espresso": { "name": "KHode Espresso", "desc": "Double-shot, single-origin, velvety crema." },
-      "latte": { "name": "Cloud Latte", "desc": "Silky steamed milk over a balanced espresso base." },
-      "coldbrew": { "name": "16-Hour Cold Brew", "desc": "Slow-steeped, smooth, and naturally sweet." },
-      "khmercoffee": { "name": "Khmer Iced Coffee", "desc": "Bold robusta with condensed milk over ice." },
-      "matcha": { "name": "Matcha Forest", "desc": "Ceremonial matcha whisked with creamy oat milk." },
-      "coconut": { "name": "Coconut Cooler", "desc": "Fresh coconut, lime, and a hint of mint." },
-      "croissant": { "name": "Butter Croissant", "desc": "Flaky, golden, baked fresh every morning." },
-      "amok": { "name": "Fish Amok Bowl", "desc": "Cambodian classic with steamed jasmine rice." },
-      "avotoast": { "name": "Avocado Toast", "desc": "Sourdough, smashed avocado, chili & lime." }
+      "espresso": { "name": "KHode Espresso", "desc": "A velvety double shot with caramel sweetness and a long, clean finish." },
+      "latte": { "name": "Cloud Latte", "desc": "Silky micro‑foam poured over a balanced, chocolatey espresso." },
+      "coldbrew": { "name": "16‑Hour Cold Brew", "desc": "Steeped low and slow for a smooth, naturally sweet pour." },
+      "khmercoffee": { "name": "Khmer Iced Coffee", "desc": "Bold robusta and sweet condensed milk over crackling ice." },
+      "matcha": { "name": "Matcha Forest", "desc": "Stone‑ground ceremonial matcha whisked into creamy oat milk." },
+      "coconut": { "name": "Coconut Cooler", "desc": "Fresh young coconut with lime and a whisper of mint." },
+      "croissant": { "name": "Butter Croissant", "desc": "Laminated for days — flaky, golden, and baked at dawn." },
+      "amok": { "name": "Fish Amok Bowl", "desc": "Cambodia's classic coconut curry over steamed jasmine rice." },
+      "avotoast": { "name": "Avocado Toast", "desc": "Smashed avocado on sourdough with chili, lime, and sea salt." }
     }
   },
   "features": {
     "chip": "Why KHode",
     "title": "More than a café — a place to make things.",
-    "subtitle": "Thoughtful details that turn a coffee run into your most productive hour.",
+    "subtitle": "Small details that turn a coffee run into your most productive hour.",
     "items": {
-      "wifi": { "title": "500 Mbps Wi‑Fi", "desc": "Fiber-fast, reliable, and free for every guest." },
-      "power": { "title": "Power at every seat", "desc": "Outlets and USB‑C within reach, always." },
-      "roast": { "title": "Fresh daily roast", "desc": "Beans roasted in-house, brewed within days." },
-      "quiet": { "title": "Focus-friendly", "desc": "Quiet zones and ambient playlists for deep work." },
-      "pay": { "title": "Scan & pay", "desc": "Instant ABA KHQR checkout — no cash needed." },
-      "open": { "title": "Open early, late", "desc": "From sunrise standups to midnight ship-its." }
+      "wifi": { "title": "Gigabit Wi‑Fi", "desc": "Fiber‑fast, rock‑solid, and free for every guest." },
+      "power": { "title": "Power at every seat", "desc": "Outlets and USB‑C always within arm's reach." },
+      "roast": { "title": "Roasted in‑house", "desc": "Beans roasted on‑site and brewed within days." },
+      "quiet": { "title": "Focus‑friendly", "desc": "Quiet corners and low‑key playlists made for deep work." },
+      "pay": { "title": "Scan & pay", "desc": "Instant ABA KHQR checkout — leave your wallet at home." },
+      "open": { "title": "Early till late", "desc": "From sunrise stand‑ups to midnight ship‑its." }
     }
   },
   "gallery": {
     "chip": "The space",
     "title": "Step inside KHode",
-    "subtitle": "Warm light, soft wood, and just the right amount of buzz."
+    "subtitle": "Warm light, soft wood, and just the right amount of hum."
   },
   "order": {
     "title": "Your order",
-    "empty": "Your order is empty. Add something delicious!",
+    "empty": "Your cart's empty — add something delicious to get started.",
     "subtotal": "Subtotal",
     "tax": "VAT (10%)",
     "total": "Total",
@@ -110,7 +114,7 @@
   },
   "auth": {
     "title": "Welcome to KHode",
-    "subtitle": "Sign in with your phone to save orders & earn rewards.",
+    "subtitle": "Sign in with your phone to save orders and earn rewards.",
     "phoneLabel": "Phone number",
     "phonePlaceholder": "12 345 678",
     "continue": "Continue",
@@ -121,28 +125,28 @@
     "verify": "Verify & continue",
     "back": "Back",
     "changeNumber": "Change number",
-    "success": "You're signed in!",
+    "success": "You're in!",
     "successBody": "Welcome to the KHode community.",
-    "terms": "By continuing you agree to our Terms & Privacy Policy.",
-    "invalidPhone": "Please enter a valid phone number.",
-    "invalidOtp": "That code doesn't look right. Try again.",
+    "terms": "By continuing, you agree to our Terms & Privacy Policy.",
+    "invalidPhone": "Hmm, that doesn't look like a valid number.",
+    "invalidOtp": "That code didn't match. Give it another try.",
     "demoHint": "Demo: use code 123456",
     "signedInAs": "Signed in",
     "signOut": "Sign out"
   },
   "payment": {
     "title": "Pay with ABA KHQR",
-    "subtitle": "Scan the QR with any banking app to complete payment.",
+    "subtitle": "Scan the code with any banking app to finish up.",
     "amount": "Amount due",
     "merchant": "KHode Café",
     "scanHint": "Open your banking app · Scan to pay · Tap once paid",
-    "expiresIn": "QR expires in {{count}}s",
+    "expiresIn": "QR expires in {{count}}",
     "expired": "QR expired",
     "regenerate": "Generate new QR",
     "simulate": "I've paid",
     "processing": "Confirming payment…",
     "success": "Payment successful",
-    "successBody": "Thank you! Your order is being prepared.",
+    "successBody": "Thank you! We're preparing your order now.",
     "ref": "Reference",
     "done": "Done",
     "poweredBy": "Secured by ABA PayWay",
@@ -164,13 +168,13 @@
   },
   "newsletter": {
     "title": "Get the good stuff",
-    "subtitle": "New brews, events, and member perks — straight to your inbox.",
+    "subtitle": "New brews, events, and member perks — straight to your inbox. No spam, ever.",
     "placeholder": "you@example.com",
     "subscribe": "Subscribe",
     "subscribed": "You're on the list!"
   },
   "footer": {
-    "blurb": "A code-inspired coffee house in Siem Reap. Brew. Build. Belong.",
+    "blurb": "A code‑inspired coffee house in Siem Reap. Brew. Build. Belong.",
     "explore": "Explore",
     "company": "Company",
     "legal": "Legal",

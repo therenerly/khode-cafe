@@ -87,7 +87,7 @@ export default function Hero() {
               <div>
                 <p className="font-display text-lg font-extrabold leading-none">4.9</p>
                 <p className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
-                  1,200+ reviews
+                  {t('hero.reviews')}
                 </p>
               </div>
             </div>
@@ -101,9 +101,11 @@ export default function Hero() {
                 <span className="absolute inset-0 rounded-xl ring-2 ring-brand-500/40 animate-pulse-ring" />
               </span>
               <div>
-                <p className="font-display text-lg font-extrabold leading-none">500</p>
+                <p className="font-display text-lg font-extrabold leading-none">
+                  {t('hero.wifiValue')}
+                </p>
                 <p className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
-                  Mbps free Wi‑Fi
+                  {t('hero.wifiUnit')}
                 </p>
               </div>
             </div>
