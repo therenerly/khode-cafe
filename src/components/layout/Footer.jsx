@@ -4,14 +4,13 @@ import {
   FiArrowRight,
   FiCheck,
   FiCoffee,
-  FiChevronRight,
   FiPhone,
   FiClock,
   FiMapPin,
-  FiSend,
+  FiArrowUpRight,
+  FiArrowUp,
 } from 'react-icons/fi'
 import { FaFacebookF, FaInstagram, FaTelegramPlane, FaTiktok } from 'react-icons/fa'
-import Logo from '../ui/Logo.jsx'
 
 const SOCIALS = [
   { icon: FaFacebookF, href: '#', label: 'Facebook' },
@@ -63,26 +62,24 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="relative mt-10 overflow-hidden border-t border-slate-200/70 bg-gradient-to-b from-slate-50/80 to-slate-100/60 dark:border-white/10 dark:from-ink-800/50 dark:to-ink-900">
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-64 bg-grid opacity-40 mask-fade-x" />
+    <footer className="relative mt-16 overflow-hidden rounded-t-[2.5rem] bg-ink-900 text-slate-300">
+      {/* Decorative background */}
+      <div className="pointer-events-none absolute inset-0 -z-0">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-500/60 to-transparent" />
+        <div className="absolute inset-0 bg-grid-dark opacity-[0.15]" style={{ backgroundSize: '44px 44px' }} />
+        <div className="absolute -left-24 top-0 h-72 w-72 rounded-full bg-brand-500/15 blur-[120px]" />
+        <div className="absolute -right-24 top-20 h-80 w-80 rounded-full bg-deep/25 blur-[130px]" />
+      </div>
 
-      {/* Newsletter band */}
-      <div className="container-px py-14">
-        <div className="card relative overflow-hidden p-8 shadow-soft sm:p-10">
-          <div className="absolute -right-10 -top-10 h-48 w-48 rounded-full bg-brand-500/15 blur-3xl" />
-          <div className="absolute -bottom-16 -left-10 h-44 w-44 rounded-full bg-deep/10 blur-3xl" />
-          <div className="relative flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
+      <div className="relative">
+        {/* Newsletter strip */}
+        <div className="container-px border-b border-white/10 py-12">
+          <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
             <div className="max-w-md">
-              <span className="inline-flex items-center gap-2 rounded-full border border-brand-500/25 bg-brand-500/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-brand-700 dark:text-brand-300">
-                <FiSend className="h-3 w-3" />
-                {t('newsletter.subscribe')}
-              </span>
-              <h3 className="mt-3 font-display text-2xl font-extrabold sm:text-3xl">
+              <h3 className="font-display text-2xl font-extrabold text-white sm:text-3xl">
                 {t('newsletter.title')}
               </h3>
-              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-                {t('newsletter.subtitle')}
-              </p>
+              <p className="mt-2 text-sm text-slate-400">{t('newsletter.subtitle')}</p>
             </div>
             <form onSubmit={subscribe} className="flex w-full max-w-md flex-col gap-3 sm:flex-row">
               <input
@@ -91,10 +88,13 @@ export default function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={t('newsletter.placeholder')}
-                className="input"
                 aria-label={t('newsletter.placeholder')}
+                className="w-full rounded-2xl border border-white/15 bg-white/5 px-4 py-3.5 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-brand-400 focus:ring-4 focus:ring-brand-500/20"
               />
-              <button type="submit" className="btn-primary shrink-0">
+              <button
+                type="submit"
+                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-brand-500 to-deep px-6 py-3.5 text-sm font-bold text-white shadow-glow transition-all hover:-translate-y-0.5"
+              >
                 {done ? (
                   <>
                     <FiCheck className="h-4 w-4" /> {t('newsletter.subscribed')}
@@ -108,134 +108,152 @@ export default function Footer() {
             </form>
           </div>
         </div>
-      </div>
 
-      {/* Main footer */}
-      <div className="container-px grid gap-10 pb-12 lg:grid-cols-12 lg:gap-8">
-        {/* Brand + quick contact */}
-        <div className="lg:col-span-4">
-          <Logo />
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-            {t('footer.blurb')}
-          </p>
+        {/* Main grid */}
+        <div className="container-px grid gap-10 py-14 lg:grid-cols-12 lg:gap-8">
+          {/* Brand */}
+          <div className="lg:col-span-4">
+            <a href="#home" className="group inline-flex items-center gap-2.5" aria-label="KHode Café — home">
+              <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/10 ring-1 ring-white/15 transition-transform group-hover:-rotate-6">
+                <img src="/khode-logo.png" alt="KHode" className="h-7 w-7 object-contain" width="28" height="28" />
+              </span>
+              <span className="font-display text-lg font-extrabold tracking-tight text-white">
+                {t('brand.name')}
+                <span className="text-brand-400">.</span>
+                <span className="ml-1 font-bold text-slate-400">{t('brand.suffix')}</span>
+              </span>
+            </a>
 
-          {/* Quick contact */}
-          <ul className="mt-6 space-y-2.5">
-            {contact.map(({ icon: Icon, label, href, external }) => {
-              const body = (
-                <>
-                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-brand-500/10 text-brand-600 dark:text-brand-300">
-                    <Icon className="h-3.5 w-3.5" />
-                  </span>
-                  {label}
-                </>
-              )
-              return (
-                <li key={label}>
-                  {href ? (
-                    <a
-                      href={href}
-                      target={external ? '_blank' : undefined}
-                      rel={external ? 'noreferrer' : undefined}
-                      className="inline-flex items-center gap-2.5 text-sm font-medium text-slate-600 transition hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-300"
-                    >
-                      {body}
-                    </a>
-                  ) : (
-                    <span className="inline-flex items-center gap-2.5 text-sm font-medium text-slate-600 dark:text-slate-400">
-                      {body}
+            {/* code-café tagline */}
+            <p className="mt-5 font-mono text-xs text-brand-300/80">
+              <span className="text-slate-500">{'// '}</span>
+              {t('brand.tagline')}
+            </p>
+            <p className="mt-3 max-w-xs text-sm leading-relaxed text-slate-400">{t('footer.blurb')}</p>
+
+            {/* Quick contact */}
+            <ul className="mt-6 space-y-2.5">
+              {contact.map(({ icon: Icon, label, href, external }) => {
+                const body = (
+                  <>
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-white/5 text-brand-300 ring-1 ring-white/10">
+                      <Icon className="h-3.5 w-3.5" />
                     </span>
-                  )}
-                </li>
-              )
-            })}
-          </ul>
+                    {label}
+                  </>
+                )
+                return (
+                  <li key={label}>
+                    {href ? (
+                      <a
+                        href={href}
+                        target={external ? '_blank' : undefined}
+                        rel={external ? 'noreferrer' : undefined}
+                        className="inline-flex items-center gap-2.5 text-sm font-medium text-slate-300 transition hover:text-brand-300"
+                      >
+                        {body}
+                      </a>
+                    ) : (
+                      <span className="inline-flex items-center gap-2.5 text-sm font-medium text-slate-400">
+                        {body}
+                      </span>
+                    )}
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
 
-          <div className="mt-6 flex gap-2.5">
-            {SOCIALS.map(({ icon: Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                aria-label={label}
-                className="grid h-10 w-10 place-items-center rounded-full border border-slate-200/80 bg-white/70 text-slate-500 transition hover:-translate-y-0.5 hover:border-brand-500/50 hover:text-brand-500 dark:border-white/10 dark:bg-white/5"
-              >
-                <Icon className="h-4 w-4" />
-              </a>
+          {/* Link columns */}
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-5">
+            {Object.entries(cols).map(([colKey, links]) => (
+              <div key={colKey}>
+                <h4 className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
+                  {t(`footer.${colKey}`)}
+                </h4>
+                <ul className="mt-4 space-y-3">
+                  {links.map(([labelKey, href]) => (
+                    <li key={labelKey}>
+                      <a
+                        href={href}
+                        className="group inline-flex items-center gap-1 text-sm font-medium text-slate-300 transition hover:text-brand-300"
+                      >
+                        {t(labelKey)}
+                        <FiArrowUpRight className="h-3.5 w-3.5 -translate-x-1 text-brand-400/0 transition-all group-hover:translate-x-0 group-hover:text-brand-400" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
           </div>
-        </div>
 
-        {/* Link columns */}
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-5">
-          {Object.entries(cols).map(([colKey, links]) => (
-            <div key={colKey}>
-              <h4 className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
-                {t(`footer.${colKey}`)}
-              </h4>
-              <ul className="mt-4 space-y-2.5">
-                {links.map(([labelKey, href]) => (
-                  <li key={labelKey}>
-                    <a
-                      href={href}
-                      className="group inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 transition hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-300"
-                    >
-                      <FiChevronRight className="h-3.5 w-3.5 text-brand-500/60 transition-transform group-hover:translate-x-0.5" />
-                      {t(labelKey)}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+          {/* Payments + status + socials */}
+          <div className="lg:col-span-3">
+            <h4 className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
+              {t('footer.pay')}
+            </h4>
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              <span className="inline-flex h-12 items-center rounded-xl bg-white px-3 transition hover:-translate-y-0.5">
+                <img src="/aba-pay.svg" alt="ABA PayWay" className="h-7 w-auto" />
+              </span>
+              <span className="inline-flex h-12 items-center gap-2 rounded-xl bg-white px-4 text-sm font-bold text-deep transition hover:-translate-y-0.5">
+                <img src="/switch-lang.svg" alt="" className="h-5 w-5" /> KHQR
+              </span>
             </div>
-          ))}
+            <p className="mt-3 text-xs text-slate-500">{t('payment.currencyNote')}</p>
+
+            <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-emerald-500/15 px-3 py-1.5 text-xs font-bold text-emerald-400">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
+              {t('hero.stat3')} · 7:00–23:00
+            </span>
+
+            <div className="mt-6 flex gap-2.5">
+              {SOCIALS.map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition hover:-translate-y-0.5 hover:border-brand-400/50 hover:text-brand-300"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* Payments + status */}
-        <div className="lg:col-span-3">
-          <h4 className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
-            {t('footer.pay')}
-          </h4>
-          <div className="mt-4 flex flex-wrap items-center gap-3">
-            <span className="inline-flex h-12 items-center rounded-xl border border-slate-200/80 bg-white px-3 transition hover:-translate-y-0.5 hover:shadow-soft dark:border-white/10 dark:bg-white/95">
-              <img src="/aba-pay.svg" alt="ABA PayWay" className="h-7 w-auto" />
-            </span>
-            <span className="inline-flex h-12 items-center gap-2 rounded-xl border border-slate-200/80 bg-white px-4 text-sm font-bold text-deep transition hover:-translate-y-0.5 hover:shadow-soft dark:border-white/10 dark:bg-white/95">
-              <img src="/switch-lang.svg" alt="" className="h-5 w-5" /> KHQR
-            </span>
-          </div>
-          <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
-            {t('payment.currencyNote')}
-          </p>
-
-          {/* Open status */}
-          <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-3 py-1.5 text-xs font-bold text-emerald-600 dark:text-emerald-400">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />
-            {t('hero.stat3')} · 7:00–23:00
+        {/* Oversized brand watermark */}
+        <div className="pointer-events-none relative select-none overflow-hidden" aria-hidden="true">
+          <span
+            className="block translate-y-[22%] bg-gradient-to-b from-white/[0.06] to-transparent bg-clip-text text-center font-display font-black leading-none text-transparent"
+            style={{ fontSize: 'clamp(4rem, 20vw, 18rem)' }}
+          >
+            {t('brand.name')}
           </span>
         </div>
-      </div>
 
-      {/* Oversized brand watermark */}
-      <div className="pointer-events-none relative select-none overflow-hidden" aria-hidden="true">
-        <span
-          className="block translate-y-[18%] bg-gradient-to-b from-slate-900/[0.05] to-transparent bg-clip-text text-center font-display font-black leading-none text-transparent dark:from-white/[0.06]"
-          style={{ fontSize: 'clamp(4rem, 19vw, 17rem)' }}
-        >
-          {t('brand.name')}
-        </span>
-      </div>
-
-      {/* Bottom bar */}
-      <div className="border-t border-slate-200/70 py-6 dark:border-white/10">
-        <div className="container-px flex flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
-          <p className="text-sm text-slate-500 dark:text-slate-400">
-            © {new Date().getFullYear()} {t('brand.name')} {t('brand.suffix')} · {t('footer.rights')}
-          </p>
-          <p className="inline-flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400">
-            {t('footer.madeWith')} <FiCoffee className="h-4 w-4 text-coffee-500" /> in Siem Reap ·{' '}
-            <a href="https://www.khode.com" className="font-semibold text-deep transition hover:text-brand-500 dark:text-brand-300">
-              www.khode.com
-            </a>
-          </p>
+        {/* Bottom bar */}
+        <div className="border-t border-white/10">
+          <div className="container-px flex flex-col items-center justify-between gap-4 py-6 text-center sm:flex-row sm:text-left">
+            <p className="text-sm text-slate-500">
+              © {new Date().getFullYear()} {t('brand.name')} {t('brand.suffix')} · {t('footer.rights')}
+            </p>
+            <p className="inline-flex items-center gap-1.5 text-sm text-slate-500">
+              {t('footer.madeWith')} <FiCoffee className="h-4 w-4 text-coffee-400" /> in Siem Reap ·{' '}
+              <a href="https://www.khode.com" className="font-semibold text-brand-300 transition hover:text-brand-200">
+                www.khode.com
+              </a>
+            </p>
+            <button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              aria-label="Back to top"
+              className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-wide text-slate-300 transition hover:border-brand-400/50 hover:text-brand-300"
+            >
+              <FiArrowUp className="h-3.5 w-3.5" /> {t('brand.name')}
+            </button>
+          </div>
         </div>
       </div>
     </footer>
