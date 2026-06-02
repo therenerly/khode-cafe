@@ -50,7 +50,7 @@ export default function Navbar() {
       <div
         className={`transition-all duration-300 ${
           scrolled
-            ? 'border-b border-slate-200/70 bg-white/80 backdrop-blur-xl dark:border-white/10 dark:bg-ink-900/80'
+            ? 'border-b border-ink-900/10 bg-paper-50/85 backdrop-blur-xl dark:border-white/10 dark:bg-ink-900/85'
             : 'border-b border-transparent bg-transparent'
         }`}
       >
@@ -68,8 +68,8 @@ export default function Navbar() {
                     aria-current={isActive ? 'true' : undefined}
                     className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-semibold transition-colors ${
                       isActive
-                        ? 'bg-brand-500/10 text-brand-600 dark:text-brand-300'
-                        : 'text-slate-600 hover:bg-brand-500/10 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-300'
+                        ? 'bg-ink-900/[0.06] text-ink-900 dark:bg-white/10 dark:text-paper-100'
+                        : 'text-ink-900/65 hover:bg-ink-900/[0.04] hover:text-ink-900 dark:text-paper-100/65 dark:hover:text-paper-100'
                     }`}
                   >
                     <Icon className="h-4 w-4" />
@@ -92,11 +92,11 @@ export default function Navbar() {
               type="button"
               onClick={openCart}
               aria-label={t('nav.order')}
-              className="relative grid h-10 w-10 place-items-center rounded-full border border-slate-200/80 bg-white/70 text-deep transition-colors hover:border-brand-500/50 hover:text-brand-500 dark:border-white/10 dark:bg-white/5 dark:text-brand-200"
+              className="relative grid h-10 w-10 place-items-center rounded-full border border-ink-900/12 bg-white/80 text-ink-900/70 transition-colors hover:border-ink-900/30 hover:text-ink-900 dark:border-white/10 dark:bg-white/5 dark:text-brand-200"
             >
               <FiShoppingBag className="h-[18px] w-[18px]" />
               {count > 0 && (
-                <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-gradient-to-r from-brand-500 to-deep px-1 text-[11px] font-extrabold text-white shadow-glow">
+                <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-ink-900 px-1 text-[11px] font-bold text-paper-50 dark:bg-paper-50 dark:text-ink-900">
                   {count}
                 </span>
               )}
@@ -105,7 +105,7 @@ export default function Navbar() {
             {/* Auth (desktop) */}
             {isAuthed ? (
               <div className="hidden items-center gap-2 sm:flex">
-                <span className="hidden items-center gap-2 rounded-full border border-brand-500/25 bg-brand-500/10 px-3 py-2 text-sm font-bold text-brand-700 dark:text-brand-300 md:inline-flex">
+                <span className="hidden items-center gap-2 rounded-full border border-ink-900/12 bg-ink-900/[0.04] px-3 py-2 text-sm font-semibold text-ink-900/75 dark:border-white/10 dark:bg-white/5 dark:text-paper-100/75 md:inline-flex">
                   <FiUser className="h-4 w-4" /> {user.phone}
                 </span>
                 <button
@@ -113,7 +113,7 @@ export default function Navbar() {
                   onClick={signOut}
                   aria-label={t('auth.signOut')}
                   title={t('auth.signOut')}
-                  className="grid h-10 w-10 place-items-center rounded-full border border-slate-200/80 bg-white/70 text-slate-500 transition hover:text-rose-500 dark:border-white/10 dark:bg-white/5"
+                  className="grid h-10 w-10 place-items-center rounded-full border border-ink-900/12 bg-white/80 text-ink-900/50 transition hover:text-rose-500 dark:border-white/10 dark:bg-white/5"
                 >
                   <FiLogOut className="h-[18px] w-[18px]" />
                 </button>
@@ -135,7 +135,7 @@ export default function Navbar() {
               onClick={() => setOpen((o) => !o)}
               aria-label="Menu"
               aria-expanded={open}
-              className="grid h-10 w-10 place-items-center rounded-full border border-slate-200/80 bg-white/70 text-deep dark:border-white/10 dark:bg-white/5 dark:text-brand-200 lg:hidden"
+              className="grid h-10 w-10 place-items-center rounded-full border border-ink-900/12 bg-white/80 text-ink-900/70 dark:border-white/10 dark:bg-white/5 dark:text-brand-200 lg:hidden"
             >
               {open ? <FiX className="h-5 w-5" /> : <FiMenu className="h-5 w-5" />}
             </button>
@@ -145,7 +145,7 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-0 top-16 z-40 origin-top bg-white/95 backdrop-blur-xl transition-all duration-300 dark:bg-ink-900/95 lg:hidden ${
+        className={`fixed inset-0 top-16 z-40 origin-top bg-paper-50/95 backdrop-blur-xl transition-all duration-300 dark:bg-ink-900/95 lg:hidden ${
           open ? 'visible opacity-100' : 'invisible opacity-0'
         }`}
       >
@@ -156,11 +156,11 @@ export default function Navbar() {
               href={href}
               onClick={() => setOpen(false)}
               style={{ transitionDelay: open ? `${i * 40}ms` : '0ms' }}
-              className={`flex items-center gap-3 rounded-2xl px-4 py-4 text-lg font-bold text-slate-700 transition-all hover:bg-brand-500/10 hover:text-brand-600 dark:text-slate-200 ${
+              className={`flex items-center gap-3 rounded-2xl px-4 py-4 font-display text-lg font-medium text-ink-900/80 transition-all hover:bg-ink-900/[0.04] hover:text-ink-900 dark:text-paper-100/80 dark:hover:text-paper-100 ${
                 open ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
               }`}
             >
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-300">
+              <span className="grid h-9 w-9 place-items-center rounded-xl bg-ink-900/[0.05] text-deep dark:bg-white/5 dark:text-brand-300">
                 <Icon className="h-[18px] w-[18px]" />
               </span>
               {t(`nav.${key}`)}

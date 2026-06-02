@@ -17,13 +17,7 @@ export default function Features() {
   const [hero, ...rest] = FEATURES
 
   return (
-    <section id="features" className="relative scroll-mt-24 py-24 sm:py-32">
-      {/* Section background rhythm */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-slate-50/60 dark:bg-white/[0.015]" />
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute left-1/2 top-0 h-64 w-[36rem] -translate-x-1/2 rounded-full bg-brand-500/10 blur-[120px]" />
-      </div>
-
+    <section id="features" className="relative scroll-mt-24 border-y border-ink-900/10 bg-paper-100/50 py-24 dark:border-white/10 dark:bg-white/[0.015] sm:py-32">
       <div className="container-px">
         <SectionHeading
           chip={t('features.chip')}
@@ -31,24 +25,22 @@ export default function Features() {
           subtitle={t('features.subtitle')}
         />
 
-        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {/* Highlighted hero feature spans two columns on large screens */}
-          <article className="group card reveal relative flex flex-col justify-between overflow-hidden bg-gradient-to-br from-deep to-brand-700 p-8 text-white sm:col-span-2 sm:row-span-1 lg:row-span-2 lg:flex-col">
-            <div className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full bg-white/10 blur-2xl transition-transform duration-700 group-hover:scale-150" />
-            <div className="pointer-events-none absolute inset-0 bg-grid opacity-20" />
-            <div className="relative">
-              <span className="grid h-16 w-16 place-items-center rounded-2xl bg-white/15 ring-1 ring-white/25 backdrop-blur">
-                <hero.icon className="h-7 w-7" />
+        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Highlighted lead feature — elegant near-black */}
+          <article className="reveal relative flex flex-col justify-between overflow-hidden rounded-2xl bg-ink-900 p-8 text-paper-100 dark:bg-white/[0.06] sm:col-span-2 lg:row-span-2">
+            <div>
+              <span className="grid h-14 w-14 place-items-center rounded-xl bg-white/10 ring-1 ring-white/15">
+                <hero.icon className="h-6 w-6" />
               </span>
-              <h3 className="mt-6 font-display text-2xl font-extrabold sm:text-3xl">
+              <h3 className="mt-6 font-display text-2xl font-medium sm:text-3xl">
                 {t(`features.items.${hero.key}.title`)}
               </h3>
-              <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/80 sm:text-base">
+              <p className="mt-3 max-w-sm text-sm leading-relaxed text-paper-100/70 sm:text-base">
                 {t(`features.items.${hero.key}.desc`)}
               </p>
             </div>
-            <div className="relative mt-8 flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-white/80">
-              <span className="h-2 w-2 rounded-full bg-emerald-300" />
+            <div className="mt-8 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-paper-100/60">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
               {t('hero.wifiValue')} {t('hero.wifiUnit')}
             </div>
           </article>
@@ -57,17 +49,16 @@ export default function Features() {
             <article
               key={key}
               style={{ transitionDelay: `${(i % 2) * 80}ms` }}
-              className="group card reveal relative overflow-hidden p-6 hover:-translate-y-1.5 hover:border-brand-500/40 hover:shadow-glow"
+              className="group card reveal relative overflow-hidden p-6 transition-all hover:-translate-y-1 hover:shadow-card"
             >
-              <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-brand-500/5 transition-transform duration-500 group-hover:scale-150" />
-              <FiArrowUpRight className="absolute right-5 top-5 h-5 w-5 text-slate-300 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand-500 dark:text-white/20" />
-              <span className="relative grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-brand-500/15 to-deep/15 text-brand-600 ring-1 ring-brand-500/20 transition-transform duration-300 group-hover:-rotate-6 dark:text-brand-300">
+              <FiArrowUpRight className="absolute right-5 top-5 h-5 w-5 text-ink-900/20 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-deep dark:text-white/20" />
+              <span className="grid h-12 w-12 place-items-center rounded-xl bg-ink-900/[0.04] text-deep ring-1 ring-ink-900/5 dark:bg-white/5 dark:text-brand-300 dark:ring-white/10">
                 <Icon className="h-5 w-5" />
               </span>
-              <h3 className="relative mt-4 font-display text-lg font-bold">
+              <h3 className="mt-4 font-display text-lg font-medium">
                 {t(`features.items.${key}.title`)}
               </h3>
-              <p className="relative mt-1.5 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+              <p className="mt-1.5 text-sm leading-relaxed text-ink-900/65 dark:text-paper-100/60">
                 {t(`features.items.${key}.desc`)}
               </p>
             </article>

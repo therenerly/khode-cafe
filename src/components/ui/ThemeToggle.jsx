@@ -12,7 +12,7 @@ export default function ThemeToggle({ className = '' }) {
       onClick={toggleTheme}
       aria-label={isDark ? t('theme.light') : t('theme.dark')}
       title={isDark ? t('theme.light') : t('theme.dark')}
-      className={`relative grid h-10 w-10 place-items-center overflow-hidden rounded-full border border-slate-200/80 bg-white/70 text-deep transition-colors hover:border-brand-500/50 hover:text-brand-500 dark:border-white/10 dark:bg-white/5 dark:text-brand-200 ${className}`}
+      className={`relative grid h-10 w-10 place-items-center overflow-hidden rounded-full border border-ink-900/12 bg-white/80 text-deep transition-colors hover:border-ink-900/30 hover:text-ink-900 dark:border-white/10 dark:bg-white/5 dark:text-brand-200 ${className}`}
     >
       <FiSun
         className={`absolute h-[18px] w-[18px] transition-all duration-500 ${

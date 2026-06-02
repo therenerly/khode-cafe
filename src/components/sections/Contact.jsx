@@ -48,19 +48,19 @@ export default function Contact() {
               {cards.map(({ icon: Icon, label, value, href }) => {
                 const inner = (
                   <>
-                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-brand-500/15 to-deep/15 text-brand-600 ring-1 ring-brand-500/20 dark:text-brand-300">
+                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-ink-900/[0.04] text-deep ring-1 ring-ink-900/5 dark:bg-white/5 dark:text-brand-300 dark:ring-white/10">
                       <Icon className="h-5 w-5" />
                     </span>
                     <div className="min-w-0">
-                      <p className="text-xs font-bold uppercase tracking-wide text-slate-400">
+                      <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-ink-900/45 dark:text-paper-100/45">
                         {label}
                       </p>
-                      <p className="mt-0.5 font-semibold text-ink-900 dark:text-white">
+                      <p className="mt-0.5 font-medium text-ink-900 dark:text-white">
                         {value}
                       </p>
                     </div>
                     {href && (
-                      <FiArrowUpRight className="ml-auto h-5 w-5 shrink-0 text-slate-300 transition group-hover:text-brand-500" />
+                      <FiArrowUpRight className="ml-auto h-5 w-5 shrink-0 text-ink-900/25 transition group-hover:text-deep dark:text-white/25" />
                     )}
                   </>
                 )
@@ -70,7 +70,7 @@ export default function Contact() {
                     href={href}
                     target={href.startsWith('http') ? '_blank' : undefined}
                     rel="noreferrer"
-                    className="group card flex items-center gap-4 p-4 hover:border-brand-500/40 hover:shadow-glow"
+                    className="group card flex items-center gap-4 p-4 hover:border-ink-900/20 hover:shadow-card dark:hover:border-white/20"
                   >
                     {inner}
                   </a>
@@ -83,11 +83,11 @@ export default function Contact() {
             </div>
 
             {/* Address strip */}
-            <div className="mt-4 rounded-2xl border border-dashed border-brand-500/30 bg-brand-500/5 p-4">
-              <p className="text-xs font-bold uppercase tracking-wide text-slate-400">
+            <div className="mt-4 rounded-xl border border-ink-900/10 bg-ink-900/[0.02] p-4 dark:border-white/10 dark:bg-white/[0.03]">
+              <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-ink-900/45 dark:text-paper-100/45">
                 {t('contact.address')}
               </p>
-              <p className="mt-1 text-sm font-medium leading-relaxed text-slate-700 dark:text-slate-300">
+              <p className="mt-1 text-sm leading-relaxed text-ink-900/75 dark:text-paper-100/75">
                 {t('contact.addressValue')}
               </p>
             </div>
@@ -112,8 +112,8 @@ export default function Contact() {
             <div className="card overflow-hidden p-2 shadow-soft">
               {/* Map label bar */}
               <div className="flex items-center justify-between gap-3 px-3 py-2.5">
-                <span className="inline-flex items-center gap-2 text-sm font-bold text-deep dark:text-brand-200">
-                  <FiMapPin className="h-4 w-4 text-brand-500" />
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-deep dark:text-brand-200">
+                  <FiMapPin className="h-4 w-4 text-deep" />
                   {t('contact.locationName')}
                 </span>
                 <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-emerald-600 dark:text-emerald-400">

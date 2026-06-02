@@ -8,7 +8,9 @@ export default {
         sans: ['Urbanist', 'Hanuman', '"Kiwi Maru"', 'system-ui', 'sans-serif'],
         khmer: ['Hanuman', 'Urbanist', 'serif'],
         jp: ['"Kiwi Maru"', 'Urbanist', 'serif'],
-        display: ['Urbanist', 'Hanuman', 'sans-serif'],
+        // Elegant serif for display headings; Khmer/Japanese fall back to
+        // their own faces automatically since Fraunces lacks those glyphs.
+        display: ['Fraunces', 'Hanuman', '"Kiwi Maru"', 'Georgia', 'serif'],
       },
       colors: {
         // Brand palette derived from the KHode logo + ABA assets
@@ -43,14 +45,22 @@ export default {
           900: '#5e3122',
         },
         ink: {
-          900: '#0a0f14',
-          800: '#0f1620',
-          700: '#16202c',
+          900: '#14110d',
+          800: '#1c1813',
+          700: '#2a241d',
+        },
+        // Warm paper neutrals for the minimal base
+        paper: {
+          DEFAULT: '#f6f3ee',
+          50: '#faf8f4',
+          100: '#f1ece4',
+          200: '#e7e0d5',
         },
       },
       boxShadow: {
-        glow: '0 0 0 1px rgba(5,187,211,0.25), 0 18px 50px -12px rgba(5,187,211,0.35)',
-        soft: '0 18px 60px -25px rgba(2,16,28,0.45)',
+        glow: '0 18px 50px -28px rgba(20,17,13,0.35)',
+        soft: '0 24px 60px -32px rgba(20,17,13,0.28)',
+        card: '0 1px 2px rgba(20,17,13,0.04), 0 12px 36px -24px rgba(20,17,13,0.22)',
       },
       backgroundImage: {
         'grid-light':

@@ -12,9 +12,6 @@ export default function About() {
 
   return (
     <section id="about" className="relative scroll-mt-24 py-24 sm:py-32">
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute -left-24 top-1/3 h-72 w-72 rounded-full bg-coffee-400/10 blur-[120px]" />
-      </div>
       <div className="container-px grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
         {/* Image collage */}
         <div className="relative reveal">
@@ -66,11 +63,11 @@ export default function About() {
             {points.map(({ icon: Icon, title, body }, i) => (
               <div
                 key={title}
-                className="group flex items-start gap-4 rounded-2xl border border-transparent p-3 transition-all hover:border-brand-500/20 hover:bg-brand-500/[0.04]"
+                className="group flex items-start gap-4 rounded-2xl border border-transparent p-3 transition-all hover:border-ink-900/10 hover:bg-ink-900/[0.02] dark:hover:border-white/10 dark:hover:bg-white/[0.03]"
               >
-                <span className="relative grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-brand-500/15 to-deep/15 text-brand-600 ring-1 ring-brand-500/20 transition-transform duration-300 group-hover:-rotate-6 dark:text-brand-300">
+                <span className="relative grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-ink-900/[0.04] text-deep ring-1 ring-ink-900/5 dark:bg-white/5 dark:text-brand-300 dark:ring-white/10">
                   <Icon className="h-5 w-5" />
-                  <span className="absolute -right-1.5 -top-1.5 grid h-5 w-5 place-items-center rounded-full bg-deep text-[10px] font-black text-white ring-2 ring-white dark:ring-ink-900">
+                  <span className="absolute -right-1.5 -top-1.5 grid h-5 w-5 place-items-center rounded-full bg-deep text-[10px] font-bold text-white ring-2 ring-paper-50 dark:ring-ink-900">
                     {i + 1}
                   </span>
                 </span>

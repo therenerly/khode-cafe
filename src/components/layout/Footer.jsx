@@ -62,15 +62,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="relative mt-16 overflow-hidden rounded-t-[2.5rem] bg-ink-900 text-slate-300">
-      {/* Decorative background */}
-      <div className="pointer-events-none absolute inset-0 -z-0">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-500/60 to-transparent" />
-        <div className="absolute inset-0 bg-grid-dark opacity-[0.15]" style={{ backgroundSize: '44px 44px' }} />
-        <div className="absolute -left-24 top-0 h-72 w-72 rounded-full bg-brand-500/15 blur-[120px]" />
-        <div className="absolute -right-24 top-20 h-80 w-80 rounded-full bg-deep/25 blur-[130px]" />
-      </div>
-
+    <footer className="relative mt-20 overflow-hidden rounded-t-[2.5rem] bg-ink-900 text-paper-100/75">
       <div className="relative">
         {/* Newsletter strip */}
         <div className="container-px border-b border-white/10 py-12">
@@ -93,7 +85,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-brand-500 to-deep px-6 py-3.5 text-sm font-bold text-white shadow-glow transition-all hover:-translate-y-0.5"
+                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-paper-50 px-6 py-3.5 text-sm font-semibold text-ink-900 transition-all hover:-translate-y-0.5"
               >
                 {done ? (
                   <>

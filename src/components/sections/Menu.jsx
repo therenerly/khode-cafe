@@ -26,7 +26,7 @@ function MenuCard({ product }) {
   }
 
   return (
-    <article className="group card reveal flex flex-col overflow-hidden ring-1 ring-transparent transition-all hover:-translate-y-1.5 hover:shadow-glow hover:ring-brand-500/30">
+    <article className="group card reveal flex flex-col overflow-hidden transition-all hover:-translate-y-1 hover:shadow-card">
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
           src={product.image}
@@ -60,10 +60,10 @@ function MenuCard({ product }) {
         <button
           type="button"
           onClick={handleAdd}
-          className={`mt-4 inline-flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-bold transition-all duration-300 ${
+          className={`mt-4 inline-flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold transition-all duration-300 ${
             added
-              ? 'bg-emerald-500 text-white'
-              : 'bg-brand-500/10 text-deep hover:bg-brand-500 hover:text-white dark:text-brand-200 dark:hover:text-white'
+              ? 'bg-emerald-600 text-white'
+              : 'bg-ink-900/[0.05] text-ink-900 hover:bg-ink-900 hover:text-paper-50 dark:bg-white/5 dark:text-paper-100 dark:hover:bg-white dark:hover:text-ink-900'
           }`}
         >
           {added ? (
@@ -95,7 +95,7 @@ function FeaturedCard({ product }) {
   }
 
   return (
-    <article className="group card reveal mb-6 grid overflow-hidden ring-1 ring-transparent transition-all hover:shadow-glow hover:ring-brand-500/30 md:grid-cols-2">
+    <article className="group card reveal mb-6 grid overflow-hidden transition-all hover:shadow-card md:grid-cols-2">
       <div className="relative aspect-[16/10] overflow-hidden md:aspect-auto">
         <img
           src={product.image}
@@ -127,10 +127,10 @@ function FeaturedCard({ product }) {
           <button
             type="button"
             onClick={handleAdd}
-            className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all duration-300 ${
+            className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 ${
               added
-                ? 'bg-emerald-500 text-white'
-                : 'bg-gradient-to-r from-brand-500 to-deep text-white shadow-glow hover:-translate-y-0.5'
+                ? 'bg-emerald-600 text-white'
+                : 'bg-ink-900 text-paper-50 hover:-translate-y-0.5 dark:bg-paper-50 dark:text-ink-900'
             }`}
           >
             {added ? (
@@ -168,10 +168,6 @@ export default function Menu() {
 
   return (
     <section id="menu" className="relative scroll-mt-24 py-24 sm:py-32">
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute right-0 top-1/4 h-72 w-72 rounded-full bg-brand-500/10 blur-[120px]" />
-      </div>
-
       <div className="container-px">
         <SectionHeading
           chip={t('menu.chip')}
@@ -189,10 +185,10 @@ export default function Menu() {
                 key={cat}
                 type="button"
                 onClick={() => setActive(cat)}
-                className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold transition-all duration-300 ${
+                className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 ${
                   isActive
-                    ? 'bg-gradient-to-r from-brand-500 to-deep text-white shadow-glow'
-                    : 'border border-slate-200/80 bg-white/60 text-slate-600 hover:border-brand-500/40 hover:text-brand-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300'
+                    ? 'bg-ink-900 text-paper-50 dark:bg-paper-50 dark:text-ink-900'
+                    : 'border border-ink-900/15 text-ink-900/70 hover:border-ink-900/40 hover:text-ink-900 dark:border-white/15 dark:text-paper-100/70 dark:hover:text-paper-100'
                 }`}
               >
                 <Icon className="h-4 w-4" />

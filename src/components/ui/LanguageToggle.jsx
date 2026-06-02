@@ -52,7 +52,7 @@ export default function LanguageToggle({ className = '', align = 'right', drop =
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={t('lang.switch')}
-        className="inline-flex h-10 items-center gap-2 rounded-full border border-slate-200/80 bg-white/70 px-3 text-deep transition-colors hover:border-brand-500/50 dark:border-white/10 dark:bg-white/5 dark:text-brand-200"
+        className="inline-flex h-10 items-center gap-2 rounded-full border border-ink-900/12 bg-white/80 px-3 text-deep transition-colors hover:border-ink-900/30 dark:border-white/10 dark:bg-white/5 dark:text-brand-200"
       >
         <img
           src={LANGS[active].flag}
